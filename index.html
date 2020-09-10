@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-<h1>MemoPad(テキスト保存タイプ)</h1>
+<h1>MemoPad(フォームの内容自動保持)</h1>
 </header>
 <main>
     <input type="text" id="key">
@@ -68,8 +68,9 @@ document.addEventListener('DOMContentLoaded', function(){
         // localstrageから消したIDの行を削除
         console.log('#'+ click_var +'_row')
         const delete_row = '#'+ click_var +'_row'
-        $(delete_row).remove();
-        alert("「" + click_var + "」を削除しました。");
+        location.reload()
+        // $(delete_row).remove();
+        // alert("「" + click_var + "」を削除しました。");
 	}
 
 	// 引数に指定したclassの値をもつ要素をすべて取得
