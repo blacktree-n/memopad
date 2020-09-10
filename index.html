@@ -11,8 +11,14 @@
 <h1>MemoPad(フォームの内容自動保持)</h1>
 </header>
 <main>
-    <input type="text" id="key">
-    <textarea id="memo"></textarea>
+    <dl>
+        <dt>題名：</dt>
+        <dd><input type="text" id="key"></dd>
+    </dl>
+    <dl>
+        <dt>内容：</dt>
+        <dd><textarea id="memo"></textarea></dd>
+    </dl>
     <ul>
         <li id="save">Save</li>
         <li id="clear">フォームClear</li>
@@ -41,7 +47,7 @@ $("#save").on("click",function(){
     const key  = $("#key").val();
     const memo = $("#memo").val();
     localStorage.setItem(key,memo);
-    const html = '<tr id="'+key+'_row"><td>'+key+'</td><td>'+memo+'</td><td><img src="img/delete_btn.png" class="delete_btn" id="'+key+'"></td></tr>';
+    const html = '<tr id="'+key+'_row"><th>'+key+'</th><td>'+memo+'</td><td><img src="img/delete_btn.png" class="delete_btn" id="'+key+'"></td></tr>';
     $("#list").append(html);
     $("#key").val(null);
     $("#memo").val(null);
@@ -88,7 +94,7 @@ for(let i=0; i<localStorage.length; i++){
     //(追加) 一時保存のkeyとvalue以外のモノだけ表示させる
     if (key != 'temporary_key_save' && key != 'temporary_memo_save') {
         // const html = '<tr><td>'+key+'</td><td>'+memo+'</td><td>'+key +'の削除'+'</td></tr>';
-        const html = '<tr><td>'+key+'</td><td>'+memo+'</td><td><img src="img/delete_btn.png" class="delete_btn" id="'+key+'"></td></tr>';
+        const html = '<tr><th>'+key+'</th><td>'+memo+'</td><td><img src="img/delete_btn.png" class="delete_btn" id="'+key+'"></td></tr>';
         $("#list").append(html);
     }
 }
